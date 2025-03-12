@@ -11,6 +11,7 @@ build/
 # Debug files
 *.log
 npm-debug.log*
+*.http
 
 # Environment variables
 .env
