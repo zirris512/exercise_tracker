@@ -1,0 +1,25 @@
+# Node.js dependencies
+node_modules/
+
+# Package lock file
+package-lock.json
+
+# Distribution/build folder
+dist/
+build/
+
+# Debug files
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+.env.*
+*.local
+
+# IDE specific files
+.idea/
+.vscode/
+
+# System files
+.DS_Store
