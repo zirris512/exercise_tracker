@@ -1,7 +1,7 @@
 import "dotenv/config";
 import { connect } from "./db.mjs";
 import express from "express";
-import router from "./routes.mjs";
+import router from "./exercises_routes.mjs";
 
 const PORT = process.env.PORT;
 
