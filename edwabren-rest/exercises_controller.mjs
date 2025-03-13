@@ -1,5 +1,6 @@
 import "dotenv/config";
 import * as exercises from "./exercises_model.mjs";
+import { connect } from "./db.mjs";
 import asyncHandler from "express-async-handler";
 import express from "express";
 
@@ -10,7 +11,7 @@ const app = express();
 app.use(express.json());
 
 app.listen(PORT, async () => {
-	await exercises.connect(false);
+	await connect();
 	console.log(`Server listening on port: ${PORT}`);
 });
 
