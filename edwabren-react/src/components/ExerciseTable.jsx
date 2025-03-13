@@ -1,7 +1,6 @@
 import ExerciseRow from "./ExerciseRow";
-import { useState, useEffect } from "react";
 
-export default function ExerciseTable({ exercises }) {
+export default function ExerciseTable({ exercises, setExercises }) {
 	return (
 		<table>
 			<thead>
@@ -15,7 +14,7 @@ export default function ExerciseTable({ exercises }) {
 			</thead>
 			<tbody>
 				{exercises.map((exercise) => (
-					<ExerciseRow key={exercise._id} {...exercise} />
+					<ExerciseRow key={exercise._id} {...exercise} setExercises={setExercises} />
 				))}
 			</tbody>
 		</table>

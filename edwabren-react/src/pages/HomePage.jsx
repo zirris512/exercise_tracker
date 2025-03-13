@@ -12,12 +12,12 @@ function HomePage() {
 
 	useEffect(() => {
 		fetchExercises();
-	}, [exercises]);
+	}, []);
 
 	return (
 		<>
 			<h2>List of Exercises</h2>
-			<ExerciseTable exercises={exercises} />
+			<ExerciseTable exercises={exercises} setExercises={setExercises} />
 		</>
 	);
 }
