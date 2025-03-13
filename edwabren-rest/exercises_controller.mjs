@@ -20,7 +20,7 @@ app.post(
 		const newExercise = req.body;
 		const result = await exercises.createExercise(newExercise);
 		if ("Error" in result) {
-			res.status(400).json(result);
+			res.status(result.status).json({ Error: result.Error });
 		} else {
 			res.status(201).json(result);
 		}
@@ -32,5 +32,32 @@ app.get(
 	asyncHandler(async (req, res) => {
 		const result = await exercises.getExercises();
 		res.json(result);
+	})
+);
+
+app.get(
+	"/exercises/:id",
+	asyncHandler(async (req, res) => {
+		const id = req.params.id;
+		const result = await exercises.getExercise(id);
+		if ("Error" in result) {
+			res.status(result.status).json({ Error: result.Error });
+		} else {
+			res.json(result);
+		}
+	})
+);
+
+app.put(
+	"/exercises/:id",
+	asyncHandler(async (req, res) => {
+		const id = req.params.id;
+		const updatedExercise = req.body;
+		const result = await exercises.updateExercise(id, updatedExercise);
+		if ("Error" in result) {
+			res.status(result.status).json({ Error: result.Error });
+		} else {
+			res.json(result);
+		}
 	})
 );
