@@ -1,8 +1,8 @@
 {
-	"name": "movies-rest",
+	"name": "edwabren-rest",
 	"version": "1.0.0",
 	"description": "",
-	"main": "movies_controller.mjs",
+	"main": "exercises_controller.mjs",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "nodemon exercises_controller.mjs"
@@ -10,6 +10,7 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"cors": "^2.8.5",
 		"dotenv": "^16.4.5",
 		"express": "^4.19.2",
 		"express-async-handler": "^1.2.0",
