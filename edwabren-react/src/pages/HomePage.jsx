@@ -1,17 +1,25 @@
-import { Link } from 'react-router-dom';
-import MovieCollection from '../components/MovieCollection';
-import { useState} from 'react';
+import { useEffect, useState } from "react";
+import ExerciseTable from "../components/ExerciseTable";
 
 function HomePage() {
-    const [movies, setMovies] = useState([]);
+	const [exercises, setExercises] = useState([]);
 
-    return (
-        <>
-            <h2>List of Movies</h2>
-            <MovieCollection movies={movies}></MovieCollection>
-            <Link to="/add-movie">Add a movie</Link>
-        </>
-    );
+	const fetchExercises = async () => {
+		const response = await fetch("http://localhost:3000/exercises");
+		const data = await response.json();
+		setExercises(data);
+	};
+
+	useEffect(() => {
+		fetchExercises();
+	}, [exercises]);
+
+	return (
+		<>
+			<h2>List of Exercises</h2>
+			<ExerciseTable exercises={exercises} />
+		</>
+	);
 }
 
 export default HomePage;
