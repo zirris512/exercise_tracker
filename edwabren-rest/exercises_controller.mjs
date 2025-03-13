@@ -29,7 +29,7 @@ app.post(
 
 app.get(
 	"/exercises",
-	asyncHandler(async (req, res) => {
+	asyncHandler(async (_, res) => {
 		const result = await exercises.getExercises();
 		res.json(result);
 	})
@@ -58,6 +58,19 @@ app.put(
 			res.status(result.status).json({ Error: result.Error });
 		} else {
 			res.json(result);
+		}
+	})
+);
+
+app.delete(
+	"/exercises/:id",
+	asyncHandler(async (req, res) => {
+		const id = req.params.id;
+		const result = await exercises.deleteExercise(id);
+		if ("Error" in result) {
+			res.status(result.status).json({ Error: result.Error });
+		} else {
+			res.status(204).json(result);
 		}
 	})
 );

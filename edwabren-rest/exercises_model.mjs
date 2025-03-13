@@ -149,4 +149,12 @@ async function updateExercise(id, exercises) {
 	return updatedExercise;
 }
 
-export { connect, createExercise, getExercises, getExercise, updateExercise };
+async function deleteExercise(id) {
+	const deletedExercise = await Exercises.findByIdAndDelete(id);
+	if (deletedExercise === null) {
+		return ERROR_NOT_FOUND;
+	}
+	return deletedExercise;
+}
+
+export { connect, createExercise, getExercises, getExercise, updateExercise, deleteExercise };
