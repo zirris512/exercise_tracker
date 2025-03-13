@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import ExerciseTable from "../components/ExerciseTable";
 
 function HomePage() {
@@ -17,6 +18,7 @@ function HomePage() {
 	return (
 		<>
 			<h2>List of Exercises</h2>
+			<Link to={"/add_exercise"}>Create Exercise</Link>
 			<ExerciseTable exercises={exercises} setExercises={setExercises} />
 		</>
 	);
