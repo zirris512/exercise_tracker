@@ -2,7 +2,7 @@ import ExerciseRow from "./ExerciseRow";
 
 export default function ExerciseTable({ exercises, setExercises }) {
 	return (
-		<table>
+		<table className="exercise-table">
 			<thead>
 				<tr>
 					<th>Name</th>

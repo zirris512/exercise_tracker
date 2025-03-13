@@ -11,12 +11,12 @@
 	color: white;
 }
 
-.collection-container {
+.exercise-table {
 	border: 6px solid rgb(0, 255, 136);
 	padding: 32px;
 }
 
-.collection-item {
+.exercise-row {
 	border: 2px solid rgb(202, 200, 89);
 	border-radius: 8px;
 	width: 600px;
