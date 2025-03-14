@@ -26,3 +26,9 @@
 a {
 	color: white;
 }
+
+fieldset {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}

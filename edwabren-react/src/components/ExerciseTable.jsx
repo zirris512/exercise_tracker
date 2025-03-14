@@ -1,6 +1,6 @@
 import ExerciseRow from "./ExerciseRow";
 
-export default function ExerciseTable({ exercises, setExercises }) {
+export default function ExerciseTable({ exercises, handleSetExercises }) {
 	return (
 		<table className="exercise-table">
 			<thead>
@@ -14,7 +14,7 @@ export default function ExerciseTable({ exercises, setExercises }) {
 			</thead>
 			<tbody>
 				{exercises.map((exercise) => (
-					<ExerciseRow key={exercise._id} {...exercise} setExercises={setExercises} />
+					<ExerciseRow key={exercise._id} {...exercise} handleSetExercises={handleSetExercises} />
 				))}
 			</tbody>
 		</table>

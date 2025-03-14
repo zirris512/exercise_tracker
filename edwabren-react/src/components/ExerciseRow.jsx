@@ -1,8 +1,11 @@
 import { FaX, FaPencil } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
 export default function ExerciseRow({ _id, name, reps, weight, unit, date, setExercises }) {
+	const navigate = useNavigate();
+
 	const deleteExercise = async (id) => {
-		const response = await fetch(`http://localhost:3000/exercises/${id}`, {
+		const response = await fetch(`/exercises/${id}`, {
 			method: "DELETE",
 		});
 		if (response.ok) {
@@ -12,6 +15,13 @@ export default function ExerciseRow({ _id, name, reps, weight, unit, date, setEx
 			alert(err.Error);
 		}
 	};
+
+	const navigateToEditPage = () => {
+		navigate("/edit_exercise", {
+			state: { _id, name, reps, weight, unit, date, setExercises },
+		});
+	};
+
 	return (
 		<tr>
 			<td>{name}</td>
@@ -25,7 +35,7 @@ export default function ExerciseRow({ _id, name, reps, weight, unit, date, setEx
 				</button>
 			</td>
 			<td>
-				<button>
+				<button onClick={navigateToEditPage}>
 					<FaPencil />
 				</button>
 			</td>
